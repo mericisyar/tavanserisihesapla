@@ -5,8 +5,8 @@ from wtforms import form
 
 
 class CalculateForm(wtforms.Form):
-    hissefiyati = wtforms.FloatField("Hisse halka arz fiyatı",validators= [wtforms.validators.DataRequired(message="Lütfen sayı girişi yapınız (küsuratlı fiyatları . ile ayırınız)")])
-    tavanserisi = wtforms.IntegerField("Tavan serisi (gün)",validators= [wtforms.validators.DataRequired(message="Lütfen tam sayı girişi yapınız")])
+    hissefiyati = wtforms.FloatField("Hisse halka arz fiyatı",validators= [wtforms.validators.DataRequired(message="Lütfen geçerli bir fiyat giriniz (küsüratlı fiyatlarda . kullanınız!)")],render_kw={"placeholder": "0.00₺"})
+    tavanserisi = wtforms.IntegerField("Tavan serisi (gün)",validators= [wtforms.validators.DataRequired(message="Lütfen geçerli bir gün sayısı giriniz")],render_kw={"placeholder": "0"})
 
 
     
@@ -44,7 +44,7 @@ def anasayfa():
         
         hissesonuc=str(round(hissesonuc,2)) 
         totaltavan=str(totaltavan)   
-        flash("Hisse halka arz sonrası "+totaltavan+" gün tavan serisi yaparsa "+hissesonuc+"₺ "+"fiyata ulaşmış olur","success")
+        flash("Hisse halka arz sonrası "+totaltavan+" gün tavan serisi yaptığı takdirde "+hissesonuc+"₺ "+"fiyatına ulaşmış olur.","dark")
     
     
     return render_template("anasayfa.html",form=form)
