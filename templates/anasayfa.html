@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block string %}
+<center><h1>Tavan Serisi Hesapla</h1></center>
+<center><p>Tavan Serisi Hesapla sitesi halka arz olan şirketin BIST kuralları çerçevesinde <b>(günlük %10 değer kazanımı/kaybedimi)</b> arz olduğu fiyattan itibaren kaç gün tavan atarsa hangi değere
+ulaşacağını hesaplamak için kurulmuştur.<hr></p></center>
+
+
+{% from "includes/_formhelpers.html" import render_field %}
+<center><form method=post>
+  <dl>
+    {{render_field(form.hissefiyati)}}
+    {{render_field(form.tavanserisi)}}
+    
+    
+    
+  </dl>
+  <button type="submit" class="btn btn-dark">Hesapla</button>
+</form></center>
+<br>
+
+
+{% endblock string %}
