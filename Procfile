@@ -1,1 +1,1 @@
-web: gunicorn app:tavanserisi
+web: gunicorn tavanserisihesapla:app
